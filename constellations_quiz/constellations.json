@@ -2,17 +2,17 @@
     "constellations": [
         {
             "name": ["Orion", "Ori"],
-            "stars": ["Betelgeuse", "Rigel", "Bellatrix", "Mintaka", "Saiph", "Alnitak", "Alnilam", "Meissa", "Hatysa", "Tabit"],
+            "stars": ["Betelgeuse", "Rigel", "Bellatrix", "Mintaka", "Saiph", "Alnitak", "Alnilam", "Meissa", "Hatysa", "Tabit","Thabit"],
 			"hint": "Winter constellation famous for three bright aligned stars. The hunter.",
 			"sky_region": "Equator",
-			"difficulty": ["E", "E", "M", "M", "M", "M", "M", "M", "H", "H"]
+			"difficulty": ["E", "E", "M", "M", "M", "M", "M", "M", "H", "H", "V"]
         },
         {
             "name": ["Ursa Major", "Uma"],
-            "stars": ["Dubhe", "Merak", "Phecda", "Megrez", "Alioth", "Alkaid", "Mizar", "Taiyangshou", "Tania Borealis/Australis", "Alula Borealis/Australis", "Talitha", "Alkaphrah"],
+            "stars": ["Dubhe", "Merak", "Phecda", "Megrez", "Alioth", "Alkaid", "Mizar", "Taiyangshou", "Tania Borealis/Australis", "Alula Borealis/Australis", "Talitha", "Alkaphrah", "Intercrus"],
 			"hint": "The most famous asterism resides here. Big Bear.",
 			"sky_region": "North",
-			"difficulty": ["M", "M", "M", "M", "M", "M" , "M", "H", "H", "H", "H", "H"]
+			"difficulty": ["M", "M", "M", "M", "M", "M" , "M", "H", "H", "V", "H", "H", "V"]
         },
 		{
             "name": ["Ursa Minor", "UMi"],
@@ -23,52 +23,66 @@
         },
 		{
             "name": ["Cepheus", "Cep"],
-            "stars": ["Alderamin", "Alfirk", "Errai"],
+            "stars": ["Alderamin", "Alfirk", "Errai", "Erakis", "Kurhah", "Al Kalb al Rai"],
 			"hint": "King of Ethiopia.",
 			"sky_region": "North",
-			"difficulty": ["M", "H", "H"]
+			"difficulty": ["M", "H", "H", "V", "V", "V"]
         },
 		{
             "name": ["Cassiopeia", "Cas"],
-            "stars": ["Segin", "Caiph", "Cih", "Ruchbach", "Schedar"],
+            "stars": ["Segin", "Caiph", "Cih", "Ruchbach", "Schedar", "Achird", "Fulu", "Marfak", "Castula"],
 			"hint": "She was the queen of Ethiopia.",
 			"sky_region": "North",
-			"difficulty": ["H", "M", "M", "M", "M"]
+			"difficulty": ["H", "M", "M", "M", "M", "V", "V", "V", "V"]
         },
 		{
             "name": ["Ophiuchus", "Oph"],
-            "stars": ["Rasalhague", "Cebalrai", "Sabik", "Khan", "Yed Posterior"],
+            "stars": ["Rasalhague", "Cebalrai", "Sabik", "Khan", "Yed Posterior", "Marfik", "Sinistra"],
 			"hint": "13th zodiac sign.",
 			"sky_region": "Equator",
-			"difficulty": ["M", "M", "M", "M", "H"]
+			"difficulty": ["M", "M", "M", "M", "H", "V", "V"]
         },
 		{
             "name": ["Capricornus", "Cap"],
-            "stars": ["Deneb Algedi", "Dabih", "Nashira", "Kastra", "Algedi"],
+            "stars": ["Deneb Algedi", "Dabih", "Nashira", "Kastra", "Algedi", "Prima Giedi", "Alshat", "Arm", "Okul"],
 			"hint": "Mythical creature that is half goat, half fish.",
 			"sky_region": "Equator",
-			"difficulty": ["M", "H", "H", "H", "H"]
+			"difficulty": ["M", "H", "H", "H", "H", "V", "V", "V", "V"]
         },
 		{
             "name": ["Andromeda", "And"],
-            "stars": ["Alpheratz", "Almaak", "Mirach"],
+            "stars": ["Alpheratz", "Almaak", "Mirach", "Adhil", "Veritate", "Titawin"],
 			"hint": "Told Athena she was more beautiful than her. Daughter of Cassiopeia.",
 			"sky_region": "North",
-			"difficulty": ["M", "M", "M"]
+			"difficulty": ["M", "M", "M", "V", "V", "V"]
         },
 		{
             "name": ["Lyra", "Lyr"],
-            "stars": ["Vega", "Sulaphat", "Sheliak"],
+            "stars": ["Vega", "Sulaphat", "Sheliak", "Alathfar", "Aladfar", "Xihe"],
 			"hint": "Music instrument.",
 			"sky_region": "North",
-			"difficulty": ["E", "H", "H"]
+			"difficulty": ["E", "H", "H", "V", "V", "V"]
+        },
+		{
+            "name": ["Hydra", "Hya"],
+            "stars": ["Alphard", "Ashlesha", "Ukdah", "Zhang", "Minchir", "Felis"],
+			"hint": "A monster with many heads.",
+			"sky_region": "Equator",
+			"difficulty": ["M", "H", "V", "V", "H", "V"]
         },
 		{
             "name": ["Canes Venatici", "CVn"],
-            "stars": ["Cor Caroli", "Chara"],
+            "stars": ["Cor Caroli", "Chara", "La Superba"],
 			"hint": "Orion's hunting dogs.",
 			"sky_region": "North",
-			"difficulty": ["M", "H"]
+			"difficulty": ["M", "H", "V"]
+		},	
+		{
+            "name": ["Serpens", "Ser"],
+            "stars": ["Unukalhai", "Gudja", "Alya"],
+			"hint": "A constellation in two parts.",
+			"sky_region": "Equator",
+			"difficulty": ["M", "H", "H"]
 		},	
 		{
             "name": ["Piscis Austrinus", "PsA"],
@@ -76,7 +90,14 @@
 			"hint": "The southern fish.",
 			"sky_region": "Equator",
 			"difficulty": ["E"]
-		},	
+		},
+		{
+            "name": ["Octans", "Oct"],
+            "stars": ["Polaris Australis"],
+			"hint": "Navigational instrument.",
+			"sky_region": "South",
+			"difficulty": ["V"]
+		},			
 		{
             "name": ["Canis Minor", "CMi"],
             "stars": ["Procyon", "Gomeisa"],
@@ -85,18 +106,32 @@
 			"difficulty": ["E", "M"]
 		},	
 		{
+            "name": ["Monoceros", "Mon"],
+            "stars": ["Citala", "Plaskett Star"],
+			"hint": "Unicorn.",
+			"sky_region": "Equator",
+			"difficulty": ["V", "V"]
+		},	
+		{
             "name": ["Aries", "Ari"],
-            "stars": ["Hamal", "Sheratan", "Mesarthim"],
+            "stars": ["Hamal", "Sheratan", "Mesarthim", "Botein"],
 			"hint": "Ram.",
 			"sky_region": "North",
-			"difficulty": ["M", "M", "H"]
+			"difficulty": ["M", "M", "H", "V"]
 		},
 		{
             "name": ["Delphinus", "Del"],
-            "stars": ["Rotanev", "Sualocin", "Aldulfin"],
+            "stars": ["Rotanev", "Sualocin", "Aldulfin", "Musica"],
 			"hint": "Member of heavenly waters family.",
 			"sky_region": "North",
-			"difficulty": ["H", "H", "H"]
+			"difficulty": ["H", "H", "H", "V"]
+		},
+		{
+            "name": ["Pisces", "Psc"],
+            "stars": ["Torcular", "Alpherg", "Revati", "Fumalsamakah"],
+			"hint": "Member of heavenly waters family. Rescued Eros and Aphrodite.",
+			"sky_region": "Equator",
+			"difficulty": ["H", "H", "V", "V"]
 		},
 		{
             "name": ["Lepus", "Lep"],
@@ -107,17 +142,24 @@
 		},
 		{
             "name": ["Corona Borealis", "CrB"],
-            "stars": ["Alphecca", "Nusakan"],
+            "stars": ["Alphecca", "Nusakan", "Kamuy"],
 			"hint": "Between Hercules and Bootes.",
 			"sky_region": "North",
-			"difficulty": ["M", "H"]
+			"difficulty": ["M", "H", "V"]
+		},
+		{
+            "name": ["Camelopardalis", "Cam"],
+            "stars": ["Moai 1", "Mago"],
+			"hint": "A giraffe.",
+			"sky_region": "North",
+			"difficulty": ["V", "V"]
 		},
 		{
             "name": ["Perseus", "Per"],
-            "stars": ["Algol", "Mirfak", "Atik", "Menkib", "Gorgonea Tertia", "Miram"],
+            "stars": ["Algol", "Mirfak", "Atik", "Menkib", "Gorgonea Tertia", "Miram", "Misam"],
 			"hint": "Saved Andromeda and married her.",
 			"sky_region": "North",
-			"difficulty": ["M", "M", "M", "H", "H", "H"]
+			"difficulty": ["M", "M", "M", "H", "H", "H", "V"]
         },
 		{
             "name": ["Coma Berenices", "Com"],
@@ -125,6 +167,20 @@
 			"hint": "Egyptian queen.",
 			"sky_region": "North",
 			"difficulty": ["H"]
+        },
+		{
+            "name": ["Triangulum", "Tri"],
+            "stars": ["Mothallah"],
+			"hint": "Galaxy visible to the naked eye, alongside Andromeda.",
+			"sky_region": "North",
+			"difficulty": ["H"]
+        },
+		{
+            "name": ["Triangulum Australe", "TrA"],
+            "stars": ["Atria"],
+			"hint": "The southern triangle.",
+			"sky_region": "South",
+			"difficulty": ["M"]
         },
 		{
             "name": ["Equuleus", "Equ"],
@@ -149,87 +205,87 @@
         },
 		{
             "name": ["Sagittarius", "Sgr"],
-            "stars": ["Kaus Australis", "Nunki", "Ascella", "Kaus Media", "Kaus Borealis", "Nash", "Polis", "Albaldah"],
+            "stars": ["Kaus Australis", "Nunki", "Ascella", "Kaus Media", "Kaus Borealis", "Nash", "Polis", "Albaldah", "Manubrij", "Ainalrami", "Rukbat", "Arkab Prior/Posterior", "Terebellum", "Gumala"],
 			"hint": "Centre of our Galaxy.",
 			"sky_region": "Equator",
-			"difficulty": ["M", "M", "M", "M", "M", "M", "H", "H"]
+			"difficulty": ["M", "M", "M", "M", "M", "M", "H", "H", "V", "V", "V", "V", "V", "V"]
         },
 		{
             "name": ["Pegasus", "Peg"],
-            "stars": ["Enif", "Scheat", "Markab", "Algenib", "Homam", "Biham", "Matar", "Sadalbari"],
+            "stars": ["Enif", "Scheat", "Markab", "Algenib", "Homam", "Biham", "Matar", "Sadalbari", "Helvetios", "Salm", "Alkarab"],
 			"hint": "Horse that can fly.",
 			"sky_region": "North",
-			"difficulty": ["M", "M", "M", "M", "H", "H", "M", "H"]
+			"difficulty": ["M", "M", "M", "M", "H", "H", "M", "H", "V", "V", "V"]
         },
 		{
-            "name": ["Gemini", "Gem"],
-            "stars": ["Castor", "Pollux", "Mebsuta", "Mekbuda", "Wasat", "Tejat", "Alhena", "Alzirr", "Propus"],
+            "name": ["Gemini", "Gem"], 
+            "stars": ["Castor", "Pollux", "Mebsuta", "Mekbuda", "Wasat", "Tejat", "Alhena", "Alzirr", "Propus", "Jishui"],
 			"hint": "Twins.",
 			"sky_region": "North",
-			"difficulty": ["M", "E", "M", "M", "M", "M", "M", "H", "H"]
+			"difficulty": ["M", "E", "M", "M", "M", "M", "M", "H", "H", "V"]
         },
 		{
             "name": ["Draco", "Dra"],
-            "stars": ["Thuban", "Eltanin", "Athebyne", "Rastaban", "Aldhibah", "Altais", "Grumium", "Kuma", "Giausar"],
+            "stars": ["Thuban", "Eltanin", "Athebyne", "Rastaban", "Aldhibah", "Altais", "Grumium", "Kuma", "Giausar", "Tyl", "Dziban", "Alsafi", "Fafnir", "Alrakis", "Taiyi", "Alruba"],
 			"hint": "Between Big and Little Bear. Dragon.",
 			"sky_region": "North",
-			"difficulty": ["M", "M", "M", "M", "H", "H", "H", "H", "H"]
+			"difficulty": ["M", "M", "M", "M", "H", "H", "H", "H", "H", "V", "V", "V", "V", "V", "V", "V"]
         },
 		{
             "name": ["Bootes", "Boo"],
-            "stars": ["Arcturus", "Izar", "Muphrid", "Seginus", "Princeps", "Nekkar"],
+            "stars": ["Arcturus", "Izar", "Muphrid", "Seginus", "Princeps", "Nekkar", "Asellus Primus", "Xuange", "Alkalurops", "Asellus Tertius", "Asellus Secondus", "Ceginus", "Merga"],
 			"hint": "Herdsman.",
 			"sky_region": "North",
-			"difficulty": ["E", "M", "M", "H", "H", "H"]
+			"difficulty": ["E", "M", "M", "H", "H", "H", "V", "V", "V", "V", "V", "V", "V"]
         },
 		{
             "name": ["Aquarius", "Aqr"],
-            "stars": ["Sadalsuud", "Sadalmelik", "Skat", "Albali", "Sadachbia", "Ancha"],
+            "stars": ["Sadalsuud", "Sadalmelik", "Skat", "Albali", "Sadachbia", "Ancha", "Bunda", "Situla"],
 			"hint": "Zeus' cup-carrier.",
 			"sky_region": "Equator",
-			"difficulty": ["M", "M", "H", "H", "H", "H"]
+			"difficulty": ["M", "M", "H", "H", "H", "H", "V", "V"]
         },
 		{
             "name": ["Auriga", "Aur"],
-            "stars": ["Capella", "Menkalinan", "Hassaleh", "Mahasim", "Saclateni"],
+            "stars": ["Capella", "Menkalinan", "Hassaleh", "Mahasim", "Saclateni", "Almaaz", "Haedus"],
 			"hint": "Charioteer.",
 			"sky_region": "North",
-			"difficulty": ["E", "M", "M", "M", "H"]
+			"difficulty": ["E", "M", "M", "M", "H", "V", "V"]
         },
 		{
             "name": ["Hercules", "Her"],
-            "stars": ["Kornephoros", "Rasalgethi", "Sarin", "Maasym", "Rutilicus"],
+            "stars": ["Kornephoros", "Rasalgethi", "Sarin", "Maasym", "Rutilicus", "Cujam", "Marsic"],
 			"hint": "Hero. The son of Zeus.",
 			"sky_region": "North",
-			"difficulty": ["M", "M", "H", "H", "H"]
+			"difficulty": ["M", "M", "H", "H", "H", "V", "V"]
         },
 		{
             "name": ["Corvus", "Crv"],
             "stars": ["Algorab", "Gienah", "Kraz", "Minkar", "Alchiba"],
 			"hint": "Black bird.",
 			"sky_region": "Equator",
-			"difficulty": ["M", "M", "M", "H", "H"	]
+			"difficulty": ["M", "M", "M", "H", "H"]
         },
 		{
             "name": ["Cancer", "Cnc"],
-            "stars": ["Tarf", "Asellus Australis", "Asellus Borealis", "Acubens"],
+            "stars": ["Tarf", "Asellus Australis", "Asellus Borealis", "Acubens", "Tegmine", "Nahn", "Piautos", "Meleph"],
 			"hint": "One of the zodiac, between Leo and Gemini.",
 			"sky_region": "Equator",
-			"difficulty": ["H", "H", "H", "H"]
+			"difficulty": ["H", "H", "H", "H", "V", "V", "V", "V"]
         },
 		{
             "name": ["Libra", "Lib"],
-            "stars": ["Zubeneschamali", "Zubenelgenubi", "Brachium", "Zubenelhakrabi"],
+            "stars": ["Zubeneschamali", "Zubenelgenubi", "Brachium", "Zubenelhakrabi", "Zuben Elakribi"],
 			"hint": "One of the zodiac, represents justice.",
 			"sky_region": "Equator",
-			"difficulty": ["M", "M", "H", "H"]
+			"difficulty": ["M", "M", "H", "V", "V"]
         },
 		{
             "name": ["Virgo", "Vir"],
-            "stars": ["Spica", "Porrima", "Vindemiatrix", "Minelauva", "Heze", "Zaniah", "Syrma", "Rijl al Awwa"],
+            "stars": ["Spica", "Porrima", "Vindemiatrix", "Minelauva", "Heze", "Zaniah", "Syrma", "Rijl al Awwa", "Kang", "Khambalia", "Elgafar", "Zavijava"],
 			"hint": "The Maiden. One of the zodiac.",
 			"sky_region": "Equator",
-			"difficulty": ["E", "M", "M", "H", "H", "H", "H", "H"]
+			"difficulty": ["E", "M", "M", "H", "H", "H", "H", "H", "V", "V", "V", "V"]
         },
 		{
             "name": ["Taurus", "Tau"],
@@ -240,24 +296,24 @@
         },
 		{
             "name": ["Aquila", "Aql"],
-            "stars": ["Altair", "Tarazed", "Okab", "Deneb Okab", "Alshain"],
+            "stars": ["Altair", "Tarazed", "Okab", "Deneb Okab", "Alshain", "Deneb el Okab", "Chechia", "Libertas"],
 			"hint": "With Lyra and Cygnus important for Kepler mission.",
 			"sky_region": "Equator",
-			"difficulty": ["E", "M", "M", "H", "H"]
+			"difficulty": ["E", "M", "M", "H", "H", "V", "V", "V"]
         },
 		{
             "name": ["Cygnus", "Cyg"],
-            "stars": ["Deneb", "Sadr", "Aljanah", "Fawaris", "Albireo"],
+            "stars": ["Deneb", "Sadr", "Aljanah", "Fawaris", "Albireo", "Azelfafage", "Ruchba"],
 			"hint": "Northern Cross.",
 			"sky_region": "North",
-			"difficulty": ["E", "M", "M", "M", "H"]
+			"difficulty": ["E", "M", "M", "M", "H", "V", "V"]
         },
 		{
             "name": ["Canis Major", "CMa"],
-            "stars": ["Sirius", "Mirzam", "Adhara", "Wezen", "Aludra", "Muliphein", "Furud", "Unurgunite"],
+            "stars": ["Sirius", "Mirzam", "Adhara", "Wezen", "Aludra", "Muliphein", "Furud", "Unurgunite", "Isida"],
 			"hint": "Orion's bigger companion.",
 			"sky_region": "Equator",
-			"difficulty": ["E", "M", "E", "M", "M", "H", "H", "H"]
+			"difficulty": ["E", "M", "E", "M", "M", "H", "H", "H", "V"]
         },
 		{
             "name": ["Cetus", "Cet"],
@@ -268,17 +324,115 @@
         },
 		{
             "name": ["Scorpius", "Sco"],
-            "stars": ["Antares", "Acrab", "Dschubba", "Sargas", "Shaula", "Larawag", "Girtab", "Paikauhale", "Fang", "Alniyat", "Xamidimura", "Lesath"],
+            "stars": ["Antares", "Acrab", "Dschubba", "Sargas", "Shaula", "Larawag", "Girtab", "Paikauhale", "Fang", "Alniyat", "Xamidimura", "Lesath", "Graffias", "Jabbah", "Iklil", "Fuyue"],
 			"hint": "Stung and killed Orion.",
 			"sky_region": "Equator",
-			"difficulty": ["E", "M", "M", "M", "M", "M", "M", "M", "M", "M", "M", "H"]
+			"difficulty": ["E", "M", "M", "M", "M", "M", "M", "M", "M", "M", "M", "H", "V", "V", "V", "V"]
+        },
+		{
+            "name": ["Carina", "Car"],
+            "stars": ["Canopus", "Miaplacidus", "Avior", "Aspidiske"],
+			"hint": "Southern foundation of Argo Navis.",
+			"sky_region": "South",
+			"difficulty": ["E", "M", "M", "H"]
+        },
+		{
+            "name": ["Centaurus", "Cen"],
+            "stars": ["Rigil Kentaurus", "Hadar", "Menkent", "Muhlifain"],
+			"hint": "Half human, half horse.",
+			"sky_region": "South",
+			"difficulty": ["E", "E", "M", "M"]
+        },
+		{
+            "name": ["Eridanus", "Eri"],
+            "stars": ["Achernar", "Cursa", "Acamar", "Zaurak", "Rana", "Ran", "Zibal", "Azha", "Theemin", "Sceptrum", "Keid", "Beid", "Angetenar"],
+			"hint": "The river in Greek mythology.",
+			"sky_region": "South",
+			"difficulty": ["E", "M", "M", "M", "H", "H", "H", "H", "H", "V", "V", "V", "V"]
+        },
+		{
+            "name": ["Crux", "Cru"],
+            "stars": ["Acrux", "Mimosa", "Gacrux", "Imai", "Ginan"],
+			"hint": "The smallest constellation.",
+			"sky_region": "South",
+			"difficulty": ["E", "E", "M", "M", "V"]
+        },
+		{
+            "name": ["Grus", "Gru"],
+            "stars": ["Alnair", "Tiaki", "Aldhanab"],
+			"hint": "One of the southern birds.",
+			"sky_region": "South",
+			"difficulty": ["M", "M", "M"]
+		},
+		{
+            "name": ["Vela", "Vel"],
+            "stars": ["Suhail al Muhlif", "Alsephina", "Suhail", "Markeb"],
+			"hint": "Part of the Argo Navis.",
+			"sky_region": "South",
+			"difficulty": ["M", "M", "M", "M"]
+        },
+		{
+            "name": ["Lupus", "Lup"],
+            "stars": ["Men", "Ke Kouan", "Thusia"],
+			"hint": "Latin for wolf.",
+			"sky_region": "South",
+			"difficulty": ["M", "M", "M"]
+        },
+		{
+            "name": ["Puppis", "Pup"],
+            "stars": ["Naos", "Ahadi", "Tureis", "Azmidi"],
+			"hint": "Part of the Argo Navis.",
+			"sky_region": "South",
+			"difficulty": ["M", "M", "M", "H"]
+        },
+		{
+            "name": ["Columba", "Col"],
+            "stars": ["Phact", "Wazn", "Elkurud"],
+			"hint": "Dove.",
+			"sky_region": "South",
+			"difficulty": ["M", "H", "V"]
+        },
+		{
+            "name": ["Phoenix", "Phe"],
+            "stars": ["Ankaa", "Wurren"],
+			"hint": "Mythical bird. One of the Southern Birds.",
+			"sky_region": "South",
+			"difficulty": ["M", "H"]
+        },
+		{
+            "name": ["Pavo", "Pav"],
+            "stars": ["Peacock"],
+			"hint": "One of the Southern Birds.",
+			"sky_region": "South",
+			"difficulty": ["M"]
+        },
+		{
+            "name": ["Leo Minor", "LMi"],
+            "stars": ["Praecipua"],
+			"hint": "Smaller lion.",
+			"sky_region": "North",
+			"difficulty": ["V"]
+        },
+		{
+            "name": ["Ara", "Ara"],
+            "stars": ["Cervantes"],
+			"hint": "Altar.",
+			"sky_region": "South",
+			"difficulty": ["V"]
+        },
+		{
+            "name": ["Corona Australis", "CrA"],
+            "stars": ["Meridiana"],
+			"hint": "Southern crown.",
+			"sky_region": "South",
+			"difficulty": ["H"]
         },
         {
             "name": ["Leo", "Leo"],
-            "stars": ["Regulus", "Denebola", "Algieba", "Zosma", "Chertan", "Ras Elased Australis", "Adhafera", "Rasalas", "Al'dzhabkhakh"],
+            "stars": ["Regulus", "Denebola", "Algieba", "Zosma", "Chertan", "Ras Elased Australis", "Adhafera", "Rasalas", "Al'dzhabkhakh", "Alterf", "Al Minliar al Asad", "Subra", "Formosa"],
 			"hint": "Lion.",
 			"sky_region": "North",
-			"difficulty": ["E", "M", "M", "M", "M", "M", "M", "M", "M"]
+			"difficulty": ["E", "M", "M", "M", "M", "M", "M", "M", "M", "V", "V", "V", "V"]
         }
     ]
 }
