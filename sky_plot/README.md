@@ -1,7 +1,7 @@
 ## Sky Plot
 
 #### Info
-This notebook shows how sky looks like on a given date and location (latitude and longitude) together with the ecliptic line - pathway of the sun. Location and date can be given by deafult, or can be obtained by input. If you want to input either location or date, just comment the row where variable is declared or write yours. Slider can be used to simulate urban areas (with the increment of 0.5).
+This notebook shows how sky looks like on a given date and location (latitude and longitude) together with the ecliptic line (pathway of the Sun throughout the year) and the boundary for circumpolar stars (stars that are always visible). Location and date can be given by deafult, or can be obtained by input. If you want to input either location or date, just comment the row where variable is declared or write yours. Slider can be used to simulate urban areas (with the increment of 0.5).
 
 Stars are taken from SIMBAD database where stars up to 6.5th visual magnitude are given. There are no deep sky objects shown.
 
@@ -21,4 +21,4 @@ Before submitting the query, be sure that in Output options tab you ticked Ident
 <br>
 
 #### Future
-Future updates will include ecliptic line toggle on/off, constellation lines (also with toggle on/off), as well as rotating sky feature. It will also feature when the night begins on a given date. Moreover, information about rising and setting times of planets will be given. For a given latitude, circumpolar stars and constellations will be displayed.
+Future updates will include ecliptic line and circumpolar stars boundary toggle on/off, constellation lines (also with toggle on/off), as well as rotating sky feature. It will also feature when the night begins on a given date. Moreover, information about rising and setting times of planets will be given.
