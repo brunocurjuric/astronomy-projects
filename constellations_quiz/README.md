@@ -5,7 +5,7 @@ This quiz helps you learn named stars and their constellations in the night sky 
 
 
 #### Future
-Future updates will feature new modes: arcade and survival mode. It will also be possible to combine difficulties, e.g. both easy and medium stars.
+Future updates will feature new modes: arcade, survival and multiplayerg. It will also be possible to combine difficulties, e.g. both easy and medium stars.
 
 
 #### How to run code
