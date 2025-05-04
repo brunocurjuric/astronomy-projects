@@ -1,13 +1,15 @@
 ## Constellations Quiz
 
 ### Info
-This quiz (`constellations_quiz.py`) helps you learn named stars and their constellations in the night sky through various difficulties depending mostly on the star's brightness as well as different regions of the sky.
+The main quiz (`constellations_quiz.py`) helps you learn named stars and their constellations in the night sky through various difficulties depending mostly on the star's brightness as well as different regions of the sky.
 
 In the multiplayer quiz (`constellations_quiz_MP.py`) you can compete with other players in this hot seat mode.  
 
+Arcade mode (`constellations_quiz_ARC.py`) lets you play multiple difficulties, starting from easy and climbing all through veteran.
+
 
 ### Future
-Future updates will feature new modes: arcade and survival. It will also be possible to combine difficulties, e.g. both easy and medium stars.
+Future updates will feature new mode: survival. Arcade mode will have highscores, difficulties and multiplayer option. It will also be possible to combine difficulties, e.g. both easy and medium stars for all quizzes.
 
 
 ### How to run code
