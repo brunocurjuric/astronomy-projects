@@ -1,17 +1,49 @@
-## Constellations Quiz
+# Constellations Quizzes
 
-### Info
-The main quiz (`constellations_quiz.py`) helps you learn named stars and their constellations in the night sky through various difficulties depending mostly on the star's brightness as well as different regions of the sky.
+[![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue?logo=python)](https://www.python.org/)
 
-In the multiplayer quiz (`constellations_quiz_MP.py`) you can compete with other players in this hot seat mode.  
+## 📘 Overview
 
-Arcade mode (`constellations_quiz_ARC.py`) lets you play multiple difficulties, starting from easy and climbing all through veteran.
+The constellations quizzes help you learn the names of stars and their corresponding constellations across different regions of the night sky, north (declinations of 40° and above), equator (declinations from -40° to 40°) and south (declinations of -40° and below). They feature multiple difficulty levels, primarily based on stellar brightness. There are different modes:
+
+- **Single Player** (`constellations_quiz_SP.py`) – Practice identifying stars and constellations on your own. Highscores available.
+- **Multiplayer** (`constellations_quiz_MP.py`) – Compete with friends in local hot-seat mode.
+- **Arcade Mode** (`constellations_quiz_ARC.py`) – Begin on easy mode and progress through increasing difficulties all the way to veteran level.
 
 
-### Future
-Future updates will feature new mode: survival. Arcade mode will have highscores, difficulties and multiplayer option. It will also be possible to combine difficulties, e.g. both easy and medium stars for all quizzes.
+## 🔮 Upcoming features
+
+Future updates will include new modes and enhancements:
+
+- **Survival Mode** – Test how long you can last as the challenge increases.
+- **Tournament Mode** – Compete in structured rounds against other players, with increasing difficulty each round.
+- **Arcade Mode Enhancements** - High scores
+  and multiplayer support.
+- **Combined Difficulties** – Mix different difficulty levels in one session.
 
 
-### How to run code
-Type `python3 constellations_quiz.py` for single player and `python3 constellations_quiz_MP.py` for multiplayer mode in terminal and you are ready to play! Be sure to read instructions carefully on how to play this quiz. <br /> 
-Type `python3 constellations_quiz.py -h` for further help. 
+
+
+## 🛠️ How to Play
+
+Open your terminal and use the following commands:
+
+### 👤 Single Player Mode
+```bash
+python3 constellations_quiz_SP.py
+```
+To see the highscores, type:
+```bash
+python3 constellations_quiz_SP.py -score difficulty region
+```
+where difficulty can be E (easy), M (medium), H (hard), V (veteran) or A (all difficulties), and region N (north), E (equator), S (south), NE (north and equator), SE (south and equator) or A (the whole sky).
+
+### 👥 Multiplayer Mode
+```bash
+python3 constellations_quiz_MP.py
+```
+
+### 🎮 Arcade Mode
+```bash
+python3 constellations_quiz_ARC.py
+```
