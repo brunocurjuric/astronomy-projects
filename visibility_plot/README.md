@@ -1,12 +1,27 @@
-## Visibility plot
+# Visibility plot
 
-#### Info
-This notebook displays visibility information for a specific object. Enter your latitude, longitude, height, and observation time to view when the object rises, culminates, and sets. It also includes information on the settings and rising times of different twilights throughout the day, as well as their duration over the course of the year. For each day, the altitude of the object at the middle of the night is shown.
+## 📖 Overview
 
-Additionally, the separation between the object and the Moon and Sun is displayed, along with the object's movement across the sky on that night.
+This Jupyter notebook visualises astronomical visibility for a specific object based on your location and observation time. Simply enter your latitude, longitude, elevation, and date, and the tool will generate detailed plots and timing information to help you plan your observations.
 
-Finally, the hours the object is above a specified altitude are shown for both astronomical night and the period when the Sun starts to set below the horizon (civil twilight).
+### 🔍 Features
+
+- Times of rising, culmination, and setting for the selected object.
+- Phases of twilight (civil, nautical, astronomical) and their durations throughout the year.
+- Object altitude at local midnight, tracked daily.
+- Separation angles between the object and both the Moon and the Sun.
+- The object’s and Moon's sky path for the chosen night.
+- Hours during which the object is above a specified altitude, during both astronomical night and twilight.
 
 
-#### Future
-Future updates will include multiple objects on the visibility plot. Many plots will be interactive to allow precise times and altitudes to be obtained. They will also feature a sky plot to illustrate how the night sky looks at midnight on a given date with all the stars and planets.
+
+## 🔭 Planned Features
+
+Future updates will bring enhanced functionality and interactivity:
+
+- 📌 Support for multiple objects plotted simultaneously and coordinate-based input (RA/Dec) instead of just named objects.
+- 🧭 Interactive plots for more precise altitude/timing exploration.
+- 🌌 A full sky chart at midnight for any date, showing stars and planets.
+- 🌙 Moon altitude added to annual visibility plots.
+- ⏰ Automatic detection of the best observation time based on altitude and sky brightness.
+- ∞ Analemma plot for a given location (Sun’s position at the same time each day).
