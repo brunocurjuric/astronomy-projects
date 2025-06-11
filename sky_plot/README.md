@@ -1,24 +1,52 @@
-## Sky Plot
+# Sky Plot
 
-#### Info
-This notebook shows how sky looks like on a given date and location (latitude and longitude) together with the ecliptic line (pathway of the Sun throughout the year) and the boundary for circumpolar stars (stars that are always visible). Location and date can be given by default, or can be obtained by input. If you want to input either location or date, just comment the row where variable is declared or write yours. Slider can be used to simulate urban areas (with the increment of 0.5). Lengths of twilights and night are also included together with rising and setting times of the planets.
+## Info
 
-Stars are taken from SIMBAD database where stars up to 6.5th visual magnitude are given. There are no deep sky objects shown.
+This Jupyter notebook visualises how the night sky appears on a selected date and location (latitude, longitude and height). It includes:
 
-<br>
+- The ecliptic line (path of the Sun across the sky throughout the year)
+- The circumpolar stars boundary (stars that never set from selected location)
+- Rising and setting times for the planets
+- Durations of twilight phases and astronomical night
+- A slider to simulate visibility in urban areas by adjusting limiting magnitude (in 0.5 steps)
 
-#### How to get star data
-In order to obtain .tsv files (tab-separated values), go to https://simbad.cds.unistra.fr/simbad/sim-fsam and enter a search expression in ADQL language:
+You can either use the default values for date and location or modify the variables manually. To input your own values, comment out or replace the default variable assignment lines.
 
-```sql
-Vmag < 6.5
-```
+The displayed stars are pulled from the SIMBAD database, including stars with a visual magnitude (Vmag) up to 6.5, which are typically visible to the naked eye under perfect conditions.
 
-Return option (right side) should be changed to display (maximum 10000 objects).
+## 📥 How to Get Star Data
 
-Before submitting the query, be sure that in Output options tab you ticked Identifier (main identifier), Object type (short abbreviation + display all types), Coordinates 1 (ICRS, J200 epoch, decimal) and Fluxes/Magnitudes (V). Output format should be ASCII (tab-separator) and file output should be chosen. It may take up to several minutes.
+To download the required `.tsv` (tab-separated values) file of visible stars from SIMBAD:
 
-<br>
+1. Visit: [SIMBAD FSAM](https://simbad.cds.unistra.fr/simbad/sim-fsam)
 
-#### Future
-Future updates will include ecliptic line and circumpolar stars boundary toggle on/off, constellation lines (also with toggle on/off), as well as rotating sky feature.
+2. In the ADQL query input box, enter:
+   ```sql
+   Vmag < 6.5
+3. On the right side, change the result limit to 10,000 objects (maximum allowed).
+
+4. Click on the *Output options* tab and make sure the following fields are selected:
+    
+    Output format - ASCII (tab-separator) and ✅ **file output**
+
+    ✅ **Identifier** (Main identifier)
+
+    ✅ **Object type** (Short abbreviation + Display all types)
+
+    ✅ **Coordinates 1** (ICRS, J2000 epoch, decimal format)
+
+    ✅ **Fluxes/Magnitudes** (V magnitude)
+
+5. Click SAVE and return to the previous page.
+6. Click SUBMIT to run the query (after the query is completed, the file will be automatically downloaded). The whole process may take a few minutes.
+
+
+## Planned features
+
+Future updates will include:
+- 👁️ Toggle options for ecliptic line, boundary for circumpolar stars, constellation lines
+- 🔄 Sky rotation - animate star positions as they move through the night
+- 🌁 Atmospheric extinction – simulate the air mass and magnitude change depending on the altitude
+- 🌓 Dark mode – black/blue background with star colors based on surface temperature
+- 🪐 Solar system view – plot current positions of planets around the Sun in the ecliptic plane
+- 🌌 Deep sky objects - Messier objects as well as other objects of interest will be shown
