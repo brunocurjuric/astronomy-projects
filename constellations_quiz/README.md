@@ -10,6 +10,7 @@ The constellations quizzes help you learn the names of stars and their correspon
 - **Multiplayer** (`constellations_quiz_MP.py`) – Compete with friends in local hot-seat mode.
 - **Arcade Mode** (`constellations_quiz_ARC.py`) – Begin on easy mode and progress through increasing difficulties all the way to veteran level.
 - **Gauntlet Mode** (`constellations_quiz_G.py`) – Five levels of play with one question from each difficulty. Highscores available.
+- **Blitz Mode** (`constellations_quiz_B.py`) – 60-second quiz with questions cycling from Easy to Veteran. Highscores available.
 
 
 ## 🔮 Upcoming features
@@ -52,4 +53,9 @@ python3 constellations_quiz_ARC.py
 ### 🎮 Gauntlet Mode
 ```bash
 python3 constellations_quiz_G.py
+```
+
+### ⚡️ Blitz Mode
+```bash
+python3 constellations_quiz_B.py
 ```
