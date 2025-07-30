@@ -11,6 +11,8 @@ There are different modes available:
 - **Single Player**: Learn and test at your own pace.  
 - **Multiplayer**: Challenge friends and compete in this hot seat mode.  
 - **Arcade Mode**: See how far you can go by progressing through increasing difficulties.
+- **Gauntlet Mode**: Five rounds, with one question from each difficulty level.
+- **Blitz Mode**: Answer as many questions as possible in 60 seconds, with difficulty increasing in a continuous loop.
 
 Whether you're an astronomy enthusiast or just starting out, these quizzes offer an engaging way to explore the night sky.
 
@@ -43,4 +45,12 @@ Useful for stargazers, educators, and anyone interested in understanding how lig
 - Duration of twilight phases and full darkness throughout the year 
 - Annual visibility: hours above a specified altitude for each day of the year
 
-The object's movement across the sky is visualized to help plan observations and identify optimal viewing times
+The object's movement across the sky is visualized to help plan observations and identify optimal viewing times.
+
+---
+
+[`messier_objects`](./messier_objects) shows which Messier objects are visible from a given location on a specific night.
+
+---
+
+[`meteor_showers`](./meteor_showers) provides an annual overview of meteor showers, classified by their peak meteor rates. It identifies active showers for a selected date and indicates the next upcoming peak.
