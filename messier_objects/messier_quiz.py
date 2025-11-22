@@ -1,7 +1,7 @@
 import pandas as pd
 import sys
 
-table = pd.read_excel('messier_objects.xlsx', index_col=None) 
+table = pd.read_excel('messier_objects.xlsx', index_col=None)
 
 constellation_mapping = {
     'And': 'Andromeda', 'Ant': 'Antlia', 'Aps': 'Apus', 'Aql': 'Aquila', 'Aqr': 'Aquarius', 'Ara': 'Ara', 'Ari': 'Aries', 'Aur': 'Auriga', 
@@ -21,75 +21,150 @@ constellation_mapping = {
 abbr_from_full = {full: abbr for abbr, full in constellation_mapping.items()}
 table["Constellation_abbr"] = table["Constellation"].map(abbr_from_full)
 
-print("Welcome to the Messier Objects Practice Quiz!\n")
-print("Currently, only one mode is implemented, where you guess the constellation based on Messier number. This only serves as a practice, for now, as no highscores are provided.\n")
-print("You will be shown a random selection of Messier objects. Your task is to name the constellation they belong to. Take as much time as you wish.")
-print("You may either type the full constellation name or its abbreviation (e.g. Canes Venatici or CVn).")
-print("The quiz is case-insensitive.\n")
+def mode_guess_constellation(df_sample):
+    print("\nYou will be shown a random selection of Messier objects. Your task is to name the constellation they belong to. Take as much time as you wish.")
+    print("You may either type the full constellation name or its abbreviation (e.g. Canes Venatici or CVn). The quiz is case-insensitive and it does not matter how many spaces appear in the answer — e.g. CVN, C V  n are all treated as the same.\n")
+    counter = 0
+    no_of_q = 0
 
+    for _, row in df_sample.iterrows():
+        answer = input(f"\nIn which constellation is {row['Name']}? ").strip().replace(" ", "").lower()
 
-unique_const = table[['Constellation', 'Constellation_abbr']].drop_duplicates()
+        if answer == "exit":
+            print(f"\nYou answered {counter} out of {no_of_q} questions correctly.")
+            sys.exit()
 
-unique_const = unique_const.sort_values(by='Constellation')
+        correct_full  = row["Constellation"].lower()
+        correct_abbr  = row["Constellation_abbr"].lower()
 
-formatted = [
-    f"{row['Constellation']} ({row['Constellation_abbr']})"
-    for _, row in unique_const.iterrows()]
-result_string = ", ".join(formatted)
-
-print(f"Constellations containing Messier objects are {result_string}.\n")
-print("To exit anytime, type 'exit' as an answer.")
-print("Good luck!")
-
-while True:
-    user_input = input(f"\nHow many objects would you like to practice with (maximum {len(table)})?: ")
-
-    if user_input.lower().strip() == "exit":  # Allow user to exit
-        sys.exit('Quiz exited.\n')
-    
-    try:
-        no_of_questions = int(user_input)  # Try to convert input to an integer
-        if 1 <= no_of_questions <= len(table):  # Check if it's within the valid range
-            if no_of_questions==1:
-                print(f"Practicing with {no_of_questions} Messier object.")
-                break  # Valid input, exit the loop
-            else:
-                print(f"Practicing with {no_of_questions} Messier objects.")
-                break  # Valid input, exit the loop
-        else:
-            print(f"Invalid input. Please enter a number between 1 and {len(table)}.")
-    except ValueError:
-        print("Invalid input. Please enter a valid number or type 'exit' to quit.")
-
-df_sample = table.sample(no_of_questions)   
-   
-mode = 1    
-counter = 0
-no_of_q = 0
-if mode == 1:
-    for index, row in df_sample.iterrows():
-        answer = input(f"\nIn which constellation is {row['Name']}? ")
-        user_ans = answer.strip().lower()
-        
-        correct_full = row["Constellation"].strip().lower()
-        correct_abbr = row["Constellation_abbr"].strip().lower()
-        
-        if user_ans == "exit":
-        	print(f"\nYou answered {counter} out of {no_of_q} questions correctly before exit!")
-        	sys.exit()
-        if user_ans in (correct_full, correct_abbr):
-            print(f"Correct answer! It is in {row['Constellation']} ({row['Constellation_abbr']}).")
+        if answer in (correct_full, correct_abbr):
+            print(f"Correct! It is in {row['Constellation']} ({row['Constellation_abbr']}).")
             counter += 1
         else:
-            print(f"Incorrect! It is in {row['Constellation']} ({row['Constellation_abbr']}).")
+            print(f"Incorrect. It is in {row['Constellation']} ({row['Constellation_abbr']}).")
+
         no_of_q += 1
-    if counter == no_of_questions:
-            if no_of_questions==1:
-                print(f"\nYou answered {counter} out of {no_of_questions} question correct, congratulations!")
+
+    return counter
+
+used_leo_triplet_answers = set()
+
+def mode_guess_messier_by_altname(df_sample):
+    print("\nYou will be shown a random selection of Messier objects. Your task is to type the Messier object's number based on its common name. Take as much time as you wish.")
+    print("You may either type wth the preceding M or just the number (e.g. M13 or 13). The quiz is case-insensitive, and it does not matter how many spaces appear in the answer — e.g. M13, m13, m 13, M 1 3, 1  3 are all treated as the same.")
+    global used_leo_triplet_answers
+
+    counter = 0
+    no_of_q = 0
+
+    def clean(s):
+        return s.lower().strip().replace(" ", "").lstrip("m")
+
+    leo_valid_raw = {"65", "66"}  # Leo Triplet degeneracy
+
+    for _, row in df_sample.iterrows():
+        alt = row["Alternate name"]
+        answer = input(f"\nWhich Messier object is {alt}? ").strip()
+
+        if answer.lower() == "exit":
+            print(f"\nYou answered {counter} out of {no_of_q} questions correctly.")
+            sys.exit()
+
+        a = clean(answer)
+        correct_raw = clean(row["Name"])
+
+        if correct_raw in leo_valid_raw:
+
+            available_answers = leo_valid_raw - used_leo_triplet_answers
+
+            if not available_answers:
+                available_answers = leo_valid_raw
+
+            if a in available_answers:
+                print(f"Correct! It is M{a}.")
+                counter += 1
+                used_leo_triplet_answers.add(a)
             else:
-                print(f"\nYou answered {counter} out of {no_of_questions} questions correct, congratulations!")
-    else:
-        if no_of_questions==1:
-            print(f"\nYou answered {counter} out of {no_of_questions} question correctly!")
+                remaining = (available_answers - {a})
+                if remaining:
+                    correct_val = remaining.pop()
+                else:
+                    correct_val = correct_raw 
+
+                print(f"Incorrect. The correct answer is M{correct_val}.")
+            no_of_q += 1
+            continue
+
+        if a == correct_raw:
+            print(f"Correct! It is {row['Name']}.")
+            counter += 1
         else:
-            print(f"\nYou answered {counter} out of {no_of_questions} questions correctly!")
+            print(f"Incorrect. The correct answer is {row['Name']}.")
+
+        no_of_q += 1
+
+    return counter
+
+
+def main():
+    print("Welcome to the Messier Objects Practice Quiz!\n")
+    
+    print("Choose a quiz mode below. You may exit at any time with 'exit'.\n")
+
+    print("Modes:")
+    print("1 — Guess the constellation from the Messier object")
+    print("2 — Guess the Messier object from its common name")
+
+    while True:
+        mode = input("\nEnter mode number: ").strip().lower()
+
+        if mode == "exit":
+            sys.exit("\nQuiz exited.")
+
+        if mode in {"1", "2"}:
+            break
+
+        print("Invalid mode. Please try again.")
+
+
+    if mode == "1":
+        filtered_table = table  
+    elif mode == "2":
+        filtered_table = table.dropna(subset=["Alternate name"])
+        if filtered_table.empty:
+            print("No entries with Alternate Name available. Exiting.")
+            sys.exit()
+
+    max_q = len(filtered_table)
+
+    while True:
+        user_input = input(f"\nHow many objects would you like to practice with (max {max_q})?: ").strip().lower()
+
+        if user_input == "exit":
+            sys.exit("\nQuiz exited.")
+
+        try:
+            n = int(user_input)
+            if 1 <= n <= max_q:
+                break
+            else:
+                print(f"Please enter a number between 1 and {max_q}.")
+        except ValueError:
+            print("Invalid input. Enter a number or type 'exit'.")
+
+    df_sample = filtered_table.sample(n)
+
+    if mode == "1":
+        score = mode_guess_constellation(df_sample)
+
+    elif mode == "2":
+        score = mode_guess_messier_by_altname(df_sample)
+
+    if n == 1:
+        print(f"\nYou answered {score} out of {n} question correctly!")
+    else:
+        print(f"\nYou answered {score} out of {n} questions correctly!")
+
+
+if __name__ == "__main__":
+    main()

@@ -10,8 +10,22 @@ This script uses Astropy and astroplan packages, which can be installed via:
 pip install astropy astroplan
 ```
 
-`messier_marathon.py` is a small quiz program designed to help you strengthen your knowledge of Messier objects.
-The current version provides a practice mode: you choose how many objects you want to study, and the script randomly selects that number of Messier objects. Your task is to guess the constellation each one belongs to.  
+You can run the script directly from the command line:
+
+```bash
+python messier_marathon.py
+```
+
+---
+
+
+`messier_quiz.py` is a command-line quiz designed to help you strengthen your knowledge of the Messier catalogue.  
+The current version provides two practice modes:  
+- Guess the constellation from a Messier object  
+- Guess the Messier object from its common name  
+
+You can choose how many objects you want to practice with, and the script will randomly select that number from the dataset.
+
 
 To run the script, make sure you have the required dependencies installed.  
 Then simply run the following command in your terminal:
@@ -45,7 +59,7 @@ A sky chart showing all Messier objects with RA/Dec grid overlays.
 
 - 🧠 **Interactive Quiz Mode**  
   A learning module with:
-    - Guess the object based on its Messier number (and vice versa)
+    - Guess the object based on its Messier number
     - Guess the object’s type from its Messier number
     - Identify the object based on its position in the sky
     - Identify the object from an image (only for nebulae and galaxies)
@@ -56,10 +70,3 @@ A sky chart showing all Messier objects with RA/Dec grid overlays.
 - 🌗 **Custom Night Start Definition**  
   Option to choose when visibility begins—civil, nautical, astronomical twilight, or full night—based on observer preference.
 
-### How to Run
-
-You can run the script directly from the command line:
-
-```bash
-python3 messier_marathon.py
-```

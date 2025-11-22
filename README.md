@@ -49,7 +49,7 @@ The object's movement across the sky is visualized to help plan observations and
 
 ---
 
-[`messier_objects`](./messier_objects) shows which Messier objects are visible from a given location on a specific night.
+[`messier_objects`](./messier_objects) shows which Messier objects are visible from a given location on a specific night. It also includes a quiz for practicing your knowledge of Messier objects with various modes.
 
 ---
 
