@@ -21,8 +21,8 @@ constellation_mapping = {
 abbr_from_full = {full: abbr for abbr, full in constellation_mapping.items()}
 table["Constellation_abbr"] = table["Constellation"].map(abbr_from_full)
 
-def mode_guess_constellation(df_sample):
-    print("\nYou will be shown a random selection of Messier objects. Your task is to name the constellation they belong to. Take as much time as you wish.")
+def mode_guess_constellation_by_number(df_sample):
+    print("\nYou will be shown a random selection of Messier objects numbers. Your task is to name the constellation they belong to. Take as much time as you wish.")
     print("You may either type the full constellation name or its abbreviation (e.g. Canes Venatici or CVn). The quiz is case-insensitive and it does not matter how many spaces appear in the answer — e.g. CVN, C V  n are all treated as the same.\n")
     counter = 0
     no_of_q = 0
@@ -50,7 +50,7 @@ def mode_guess_constellation(df_sample):
 used_leo_triplet_answers = set()
 
 def mode_guess_messier_by_altname(df_sample):
-    print("\nYou will be shown a random selection of Messier objects. Your task is to type the Messier object's number based on its common name. Take as much time as you wish.")
+    print("\nYou will be shown a random selection of Messier objects common names. Your task is to type the Messier object's number based on its common name. Take as much time as you wish.")
     print("You may either type wth the preceding M or just the number (e.g. M13 or 13). The quiz is case-insensitive, and it does not matter how many spaces appear in the answer — e.g. M13, m13, m 13, M 1 3, 1  3 are all treated as the same.")
     global used_leo_triplet_answers
 
@@ -106,14 +106,41 @@ def mode_guess_messier_by_altname(df_sample):
     return counter
 
 
+def mode_guess_constellation_from_common_name(df_sample):
+    print("\nYou will be shown a random selection of Messier objects common names. Your task is to name the constellation they belong to. Take as much time as you wish.")
+    print("You may either type the full constellation name or its abbreviation (e.g. Canes Venatici or CVn). The quiz is case-insensitive and it does not matter how many spaces appear in the answer — e.g. CVN, C V  n are all treated as the same.\n")
+    counter = 0
+    no_of_q = 0
+
+    for _, row in df_sample.iterrows():
+        answer = input(f"\nIn which constellation is {row['Alternate name']}? ").strip().replace(" ", "").lower()
+
+        if answer == "exit":
+            print(f"\nYou answered {counter} out of {no_of_q} questions correctly.")
+            sys.exit()
+
+        correct_full  = row["Constellation"].lower()
+        correct_abbr  = row["Constellation_abbr"].lower()
+
+        if answer in (correct_full, correct_abbr):
+            print(f"Correct! It is in {row['Constellation']} ({row['Constellation_abbr']}).")
+            counter += 1
+        else:
+            print(f"Incorrect. It is in {row['Constellation']} ({row['Constellation_abbr']}).")
+
+        no_of_q += 1
+
+    return counter
+
 def main():
     print("Welcome to the Messier Objects Practice Quiz!\n")
     
-    print("Choose a quiz mode below. You may exit at any time with 'exit'.\n")
+    print("Choose a quiz mode below. You may exit the quiz at any time by typing 'exit'.\n")
 
     print("Modes:")
-    print("1 — Guess the constellation from the Messier object")
+    print("1 — Guess the constellation from the Messier object number")
     print("2 — Guess the Messier object from its common name")
+    print("3 — Guess the constellation from the Messier object common name")
 
     while True:
         mode = input("\nEnter mode number: ").strip().lower()
@@ -121,7 +148,7 @@ def main():
         if mode == "exit":
             sys.exit("\nQuiz exited.")
 
-        if mode in {"1", "2"}:
+        if mode in {"1", "2", "3"}:
             break
 
         print("Invalid mode. Please try again.")
@@ -134,7 +161,11 @@ def main():
         if filtered_table.empty:
             print("No entries with Alternate Name available. Exiting.")
             sys.exit()
-
+    elif mode == "3":
+        exclude_names = ["Great Hercules Cluster", "Great Pegasus Cluster", "Great Sagittarius Cluster", "Small Sagittarius Star Cloud", "Andromeda Galaxy", "Triangulum Galaxy", "Great Orion Nebula", "Leo Triplet"]
+        filtered_table = table.dropna(subset=["Alternate name"])
+        filtered_table = filtered_table[~filtered_table["Alternate name"].isin(exclude_names)]
+        
     max_q = len(filtered_table)
 
     while True:
@@ -155,10 +186,11 @@ def main():
     df_sample = filtered_table.sample(n)
 
     if mode == "1":
-        score = mode_guess_constellation(df_sample)
-
+        score = mode_guess_constellation_by_number(df_sample)
     elif mode == "2":
         score = mode_guess_messier_by_altname(df_sample)
+    elif mode == "3":
+        score = mode_guess_constellation_from_common_name(df_sample)
 
     if n == 1:
         print(f"\nYou answered {score} out of {n} question correctly!")

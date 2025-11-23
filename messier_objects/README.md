@@ -21,8 +21,9 @@ python messier_marathon.py
 
 `messier_quiz.py` is a command-line quiz designed to help you strengthen your knowledge of the Messier catalogue.  
 The current version provides two practice modes:  
-- Guess the constellation from a Messier object  
+- Guess the constellation from a Messier object number
 - Guess the Messier object from its common name  
+- Guess the constellation from a Messier object common name
 
 You can choose how many objects you want to practice with, and the script will randomly select that number from the dataset.
 
