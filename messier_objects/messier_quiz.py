@@ -132,6 +132,114 @@ def mode_guess_constellation_from_common_name(df_sample):
 
     return counter
 
+def mode_guess_number_by_constellation_random(table, max_misses=3):
+    """
+    Random mode: pick random remaining object to choose a constellation.
+    Accept any Messier object from that constellation.
+    If the user repeats a guessed object → ask again for the SAME constellation.
+    """
+    print("\nYou will be shown a random constellation. Your task is to type a Messier object's number that belongs to that constellation.")
+    print("You may either type it with the preceding 'M' or just the number (e.g., M13 or 13). The quiz is case-insensitive and ignores spaces, so all of the following are valid: M13, m13, m 13, M 1 3, 1  3.")
+    print("If you repeat a Messier object you've already guessed for that constellation, it will remind you but not count as a miss.")
+    print(f"You have a maximum of 3 mistakes (misses) before the quiz ends.")
+    print("After a correct guess, the quiz will move on to another random constellation until all objects are guessed or mistakes are exhausted. Good luck!\n")
+
+    import random
+    import sys
+
+    def clean(s):
+        return s.lower().strip().replace(" ", "").lstrip("m")
+
+    counter = 0
+    misses = 0
+
+    remaining_table = table.copy().reset_index(drop=True)
+    guessed_objects = {const: set() for const in table["Constellation"].unique()}
+
+    # We will keep a "current constellation" until answered correctly (or incorrectly)
+    current_const = None
+
+    while not remaining_table.empty and misses < max_misses:
+
+        # Pick a new constellation only if we are not repeating a prompt
+        if current_const is None:
+            row = remaining_table.sample(1).iloc[0]
+            current_const = row["Constellation"]
+
+        # valid cleaned numbers for this constellation
+        constellation_rows = table[table["Constellation"] == current_const]
+        valid_nums = {clean(n) for n in constellation_rows["Name"]}
+
+        guessed_count = len(guessed_objects[current_const])
+        total_objects = len(constellation_rows)
+
+        # Build a display list of already-guessed objects: ["M53", "M64", ...]
+        guessed_list = sorted(
+            guessed_objects[current_const],
+            key=lambda x: int(x)
+        )
+        guessed_list = [f"M{x}" for x in guessed_list]
+
+        if guessed_list:
+            guessed_display = ": " + ", ".join(guessed_list)
+        else:
+            guessed_display = ""
+
+        raw_answer = input(
+            f"Name a Messier object in {current_const} ({guessed_count}/{total_objects} guessed{guessed_display}): "
+        )
+
+        if raw_answer.lower().strip() == "exit":
+            print(f"\nYou answered {counter} correctly before exiting.")
+            return counter
+
+        a = clean(raw_answer)
+
+        # User already guessed this object → ask again for SAME constellation
+        if a in guessed_objects[current_const]:
+            print(f"You've already guessed M{a} for {current_const}. Try a different object.")
+            # DO NOT reset current_const
+            # DO NOT pick a new constellation
+            continue
+
+        # Correct answer for that constellation
+        if a in valid_nums:
+            print(f"Correct! M{a} is in {current_const}.")
+            counter += 1
+            guessed_objects[current_const].add(a)
+
+            # remove any row matching this number
+            remaining_table = remaining_table[
+                remaining_table["Name"].apply(lambda s: clean(str(s)) != a)
+            ].reset_index(drop=True)
+
+            # If constellation completed → announce, then reset
+            if len(guessed_objects[current_const]) == total_objects:
+                remaining_const_count = sum(
+                    1
+                    for c in guessed_objects
+                    if len(guessed_objects[c]) < len(table[table["Constellation"] == c])
+                )
+                print(f"\nYou have completed all objects in {current_const}. {remaining_const_count} constellations left.\n")
+
+            # Finished a cycle → next loop may select a NEW constellation
+            current_const = None
+            continue
+
+        # Incorrect answer
+        
+        misses += 1
+        print(f"Incorrect. Try again. Misses: {misses}/{max_misses}")
+        current_const = None
+        continue
+        # Even if incorrect → stay on same constellation
+        # Only reset constellation if 3 misses end the quiz
+
+    print(f"\nQuiz finished! You correctly named {counter} objects.")
+    return counter
+
+
+
 def main():
     print("Welcome to the Messier Objects Practice Quiz!\n")
     
@@ -141,6 +249,7 @@ def main():
     print("1 — Guess the constellation from the Messier object number")
     print("2 — Guess the Messier object from its common name")
     print("3 — Guess the constellation from the Messier object common name")
+    print("4 - Guess the Messier object from a given constellation")
 
     while True:
         mode = input("\nEnter mode number: ").strip().lower()
@@ -148,13 +257,13 @@ def main():
         if mode == "exit":
             sys.exit("\nQuiz exited.")
 
-        if mode in {"1", "2", "3"}:
+        if mode in {"1", "2", "3", "4"}:
             break
 
         print("Invalid mode. Please try again.")
 
 
-    if mode == "1":
+    if mode == "1" or mode == "4":
         filtered_table = table  
     elif mode == "2":
         filtered_table = table.dropna(subset=["Alternate name"])
@@ -168,35 +277,57 @@ def main():
         
     max_q = len(filtered_table)
 
-    while True:
-        user_input = input(f"\nHow many objects would you like to practice with (max {max_q})?: ").strip().lower()
+    # -----------------------------------
+    # 3. ASK FOR NUMBER OF QUESTIONS (except for mode 4)
+    # -----------------------------------
 
-        if user_input == "exit":
-            sys.exit("\nQuiz exited.")
+    if mode != "4":
 
-        try:
-            n = int(user_input)
-            if 1 <= n <= max_q:
-                break
-            else:
-                print(f"Please enter a number between 1 and {max_q}.")
-        except ValueError:
-            print("Invalid input. Enter a number or type 'exit'.")
+        max_q = len(filtered_table)
 
-    df_sample = filtered_table.sample(n)
+        while True:
+            user_input = input(f"\nHow many objects would you like to practice with (max {max_q})?: ").strip().lower()
+
+            if user_input == "exit":
+                sys.exit("\nQuiz exited.")
+
+            try:
+                n = int(user_input)
+                if 1 <= n <= max_q:
+                    break
+                else:
+                    print(f"Please enter a number between 1 and {max_q}.")
+            except ValueError:
+                print("Invalid input. Enter a number or type 'exit'.")
+
+        df_sample = filtered_table.sample(n)
+
+    # -----------------------------------
+    # 4. RUN THE SELECTED MODE
+    # -----------------------------------
 
     if mode == "1":
         score = mode_guess_constellation_by_number(df_sample)
+
     elif mode == "2":
         score = mode_guess_messier_by_altname(df_sample)
+
     elif mode == "3":
         score = mode_guess_constellation_from_common_name(df_sample)
 
-    if n == 1:
-        print(f"\nYou answered {score} out of {n} question correctly!")
-    else:
-        print(f"\nYou answered {score} out of {n} questions correctly!")
+    elif mode == "4":
+        # full 110 objects, no sampling
+        score = mode_guess_number_by_constellation_random(table, max_misses=3)
 
+    # -----------------------------------
+    # 5. PRINT RESULTS (except for mode 4)
+    # -----------------------------------
+
+    if mode != "4":
+        if n == 1:
+            print(f"\nYou answered {score} out of {n} question correctly!")
+        else:
+            print(f"\nYou answered {score} out of {n} questions correctly!")
 
 if __name__ == "__main__":
     main()
