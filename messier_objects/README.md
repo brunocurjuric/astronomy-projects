@@ -20,11 +20,13 @@ python messier_marathon.py
 
 
 `messier_quiz.py` is a command-line quiz designed to help you strengthen your knowledge of the Messier catalogue.  
-The current version provides two practice modes:  
-- Guess the constellation from a Messier object number
-- Guess the Messier object from its common name  
-- Guess the constellation from a Messier object common name
-- Guess the Messier object from a given constellation 
+The current version provides four practice modes:  
+<ol>
+ <li> Guess the constellation from a Messier object number </li>
+<li> Guess the Messier object from its common name  </li>
+<li> Guess the constellation from a Messier object common name</li>
+<li> Guess the Messier object from a given constellation </li>
+</ol>
 
 You can choose how many objects you want to practice with, and the script will randomly select that number from the dataset.
 
@@ -33,10 +35,6 @@ To run the script, make sure you have the required dependencies installed.
 Then simply run the following command in your terminal:
 ```
 python messier_quiz.py
-```
-You will likely need to install openpyxl for reading the Excel file:
-```
-pip install openpyxl
 ```
 
 
