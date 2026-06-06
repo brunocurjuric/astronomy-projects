@@ -50,3 +50,5 @@ Future updates will include:
 - 🌓 Dark mode – black/blue background with star colors based on surface temperature
 - 🪐 Solar system view – plot current positions of planets around the Sun in the ecliptic plane
 - 🌌 Deep sky objects - Messier objects as well as other objects of interest will be shown
+- 🌍 Exoplanet host stars – highlight naked-eye stars known to host confirmed exoplanets 
+- 🌠 Stellar streams & moving groups – highlight naked-eye stars that belong to common-origin stellar populations
